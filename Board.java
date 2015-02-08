@@ -1,14 +1,14 @@
 public class Board 
 {
-  //private static boolean[][] pieces;
-  private static boolean shouldBeEmpty;
+  private static Piece[][] pieces;
+  private static  boolean shouldBeEmpty;
   
   public Board(boolean shouldBeEmpty)
   {
-    shouldBeEmpty = shouldBeEmpty;
+    this.shouldBeEmpty = shouldBeEmpty;
     drawBoard(8);
   }
-  /*
+  
   public Piece pieceAt(int x, int y){}
 
   public boolean canSelect(int x, int y) {}
@@ -24,7 +24,7 @@ public class Board
   public void endturn() {}
 
   public String winner() {}
-  */
+  
   private static void drawBoard(int N) 
   {
     for (int i = 0; i < N; i++) 
@@ -39,7 +39,7 @@ public class Board
         StdDrawPlus.filledSquare(i + .5, j + .5, .5);
         StdDrawPlus.setPenColor(StdDrawPlus.WHITE);
         
-        if((i + j) % 2 == 0)
+        if(!shouldBeEmpty && (i + j) % 2 == 0)
         {
           switch(j)
           {
@@ -93,6 +93,6 @@ public class Board
       }            
       StdDrawPlus.show(100);
     }*/
-    Board testBoard = new Board(true);
+    Board testBoard = new Board(false);
   }
 }

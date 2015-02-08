@@ -1,11 +1,12 @@
 public class Board 
 {
-  //private static boolean[][] pieces; 
+  //private static boolean[][] pieces;
+  private static boolean shouldBeEmpty;
   
-  Board(boolean shouldBeEmpty)
+  public Board(boolean shouldBeEmpty)
   {
-    if(shouldBeEmpty)
-      drawBoard(8);
+    shouldBeEmpty = shouldBeEmpty;
+    drawBoard(8);
   }
   /*
   public Piece pieceAt(int x, int y){}
@@ -30,14 +31,42 @@ public class Board
     {
       for (int j = 0; j < N; j++) 
       {
-        if ((i + j) % 2 == 0) 
+        if ((i + j) % 2 == 0)
           StdDrawPlus.setPenColor(StdDrawPlus.GRAY);
         else                  
           StdDrawPlus.setPenColor(StdDrawPlus.RED);
 
         StdDrawPlus.filledSquare(i + .5, j + .5, .5);
         StdDrawPlus.setPenColor(StdDrawPlus.WHITE);
-        /*if (pieces[i][j]) 
+        
+        if((i + j) % 2 == 0)
+        {
+          switch(j)
+          {
+            case 0:
+              StdDrawPlus.picture(i + .5, j + .5, "img/pawn-fire.png", 1, 1);
+              break;
+            case 1:
+              StdDrawPlus.picture(i + .5, j + .5, "img/shield-fire.png", 1, 1);
+              break;
+            case 2:
+              StdDrawPlus.picture(i + .5, j + .5, "img/bomb-fire.png", 1, 1);
+              break;
+            case 5:
+              StdDrawPlus.picture(i + .5, j + .5, "img/bomb-water.png", 1, 1);
+              break;
+            case 6:
+              StdDrawPlus.picture(i + .5, j + .5, "img/shield-water.png", 1, 1);
+              break; 
+            case 7:
+              StdDrawPlus.picture(i + .5, j + .5, "img/pawn-water.png", 1, 1);
+              break;
+            default:
+              break;
+          }
+        }
+        /*
+        if (pieces[i][j]) 
         {
           StdDrawPlus.picture(i + .5, j + .5, "img/bomb-fire-crowned.png", 1, 1);
         }*/
